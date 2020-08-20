@@ -1,0 +1,21 @@
+div.container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  font-family: Impact, Charcoal, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  min-height: 100%; }
+
+ul.week {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+
+li.days {
+  display: flex;
+  flex-direction: column; }
