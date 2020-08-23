@@ -1,8 +1,9 @@
 import React from 'react'
 import '../../dist/css/main.css'
-import Week from './Week.jsx'
 import { GOOGLE_API_KEY, WEATHER_API_KEY } from '../../../config.js'
 import axios from 'axios'
+import Week from './Week.jsx'
+import Search from './Search.jsx'
 
 export default class App extends React.Component {
 
@@ -17,12 +18,15 @@ export default class App extends React.Component {
       dailyWeather: []
     }
     this.getWeather = this.getWeather.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
     this.getWeather()
   }
 
+  // HTTP REQUESTS
   getWeather(zip) {
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${zip||this.state.zip}&key=${GOOGLE_API_KEY}`)
       .then(response => {
@@ -33,10 +37,10 @@ export default class App extends React.Component {
             lat: response.data.results[0].geometry.location.lat,
             lng: response.data.results[0].geometry.location.lng,
         }, () => {
-          axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lng}&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`)
+          axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lng}&exclude=minutely,hourly&appid=${WEATHER_API_KEY}&units=imperial`)
             .then(response => {
               this.setState({
-                dailyWeather: response.data.daily
+                dailyWeather: response.data.daily.slice(0,7)
               })
             })
             .catch(err => console.log(err))
@@ -45,10 +49,20 @@ export default class App extends React.Component {
       .catch(err => console.log(err))
   }
 
-  render() {
+    // FORM HANDLERS
+    handleChange(event) {
+      this.setState({zip: event.target.value})
+    }
 
+    handleSubmit(event) {
+      event.preventDefault()
+      this.getWeather(this.state.zip)
+    }
+
+  render() {
     return (
-      <div className='container'>
+      <div className='appcontainer'>
+        <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <Week weather={this.state.dailyWeather} />
       </div>
     )

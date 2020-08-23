@@ -13,11 +13,17 @@ const Day = ({ date, temperature, clouds, pop, condition, description, icon }) =
   const year = daystring.substr(11,4)
 
   return (
-    <li className='days'>
+    <div className='day'>
       <span className='weekday'> {weekday} </span>
-      <span className='day'> {day} </span>
-      <span className='month'> {month} </span>
-    </li>
+      <div className='temperature'>
+        <span className='temphigh'> {Math.round(temperature.max)}° </span>
+        <span className='templow'> / {Math.round(temperature.min)}° </span>
+      </div>
+      <img src={`http://openweathermap.org/img/wn/${icon}.png`} />
+      <span className='condition'> {condition} </span>
+      <span className='pop'> {Math.round(pop*100)}% </span>
+      <span className='date'> {month + ' ' + day} </span>
+    </div>
   )
 }
 
