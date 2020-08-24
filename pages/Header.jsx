@@ -1,5 +1,5 @@
 import React from 'react'
-import '../client/dist/css/main.css'
+// import '../client/dist/css/main.css'
 
 const Header = ({ city, state }) => (
   <div className='headercontainer'>

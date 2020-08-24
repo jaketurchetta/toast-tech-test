@@ -1,5 +1,5 @@
 import React from 'react'
-import '../client/dist/css/main.css'
+// import '../client/dist/css/main.css'
 import Day from './Day.jsx'
 
 const Week = ({ weather }) => (
