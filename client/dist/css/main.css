@@ -88,6 +88,9 @@ div.headercontainer {
 h3.subtitle {
   font-style: italic; }
 
+h4.subtitle {
+  font-style: italic; }
+
 input.bar {
   display: flex;
   justify-content: center;
@@ -99,4 +102,5 @@ input.bar {
   border-radius: 50px;
   background: #27282a;
   box-shadow: inset 4px 4px 8px #1c1d1e, inset -4px -4px 8px #323336;
-  outline: none; }
+  outline: none;
+  text-align: center; }

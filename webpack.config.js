@@ -1,4 +1,7 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 module.exports = {
+  mode: 'production',
   entry: __dirname + '/pages/index.jsx',
   module: {
     rules: [
@@ -21,5 +24,11 @@ module.exports = {
    output: {
     filename: 'bundle.js',
     path: __dirname + '/client/dist'
-  }
+  },
+  resolve: {
+    extensions: ['.js', '.json', '.jsx', '.css']
+  },
+//   plugins: [
+//     new BundleAnalyzerPlugin()
+//   ]
 }

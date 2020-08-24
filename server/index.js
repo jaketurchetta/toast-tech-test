@@ -3,6 +3,7 @@ const next = require('next')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
+const compression = require('compression')
 
 // Initialize Express
 const PORT = 3000
@@ -18,6 +19,7 @@ app.prepare()
     server.use(morgan('dev'))
     server.use(bodyParser.json())
     server.use(bodyParser.urlencoded({ extended: true }))
+    server.use(compression())
     server.use(express.static(__dirname + '/../client/dist'))
     server.get('*', (req, res) => {
       return handle(req, res)
@@ -31,5 +33,3 @@ app.prepare()
     console.error(ex.stack)
     process.exit(1)
   })
-
-

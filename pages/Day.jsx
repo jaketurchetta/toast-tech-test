@@ -20,7 +20,7 @@ const Day = ({ date, temperature, clouds, pop, condition, description, icon }) =
         <span className='templow'> / {Math.round(temperature.min)}° </span>
       </div>
       <div className='circle' >
-        <img className='icon' src={`http://openweathermap.org/img/wn/${icon}.png`} />
+        <img className='icon' src={`http://openweathermap.org/img/wn/${icon}.png`} alt='Weather Icon' />
       </div>
       <span className='condition'> {condition} </span>
       <div className='precipitation'>
