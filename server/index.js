@@ -1,24 +1,35 @@
-const React = require('react')
-const ReactDOMServer = require('react-dom/server.js')
 const express = require('express')
+const next = require('next')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
 
 // Initialize Express
-const app = express()
 const PORT = 3000
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
 
-// MIDDLEWARE
-app.use(cors())
-app.use(morgan('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static(__dirname + '/../client/dist'))
+// SSR
+app.prepare()
+  .then(() => {
+    const server = express()
+    server.use(cors())
+    server.use(morgan('dev'))
+    server.use(bodyParser.json())
+    server.use(bodyParser.urlencoded({ extended: true }))
+    server.use(express.static(__dirname + '/../client/dist'))
+    server.get('*', (req, res) => {
+      return handle(req, res)
+    })
+    server.listen(PORT, (err) => {
+      if (err) throw err
+      console.log(`Server listening on port ${PORT}`)
+    })
+  })
+  .catch((ex) => {
+    console.error(ex.stack)
+    process.exit(1)
+  })
 
-// ROUTES
 
-
-
-// LISTEN
-app.listen(PORT, console.log(`Server listening on port ${PORT}`))
