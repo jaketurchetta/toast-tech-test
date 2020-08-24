@@ -66,3 +66,33 @@ span.temphigh {
 form.search {
   color: white;
   padding-bottom: 50px; }
+
+div.circle {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+img.icon {
+  height: 50px;
+  width: 50px;
+  background-color: #2b8bd4;
+  border-radius: 50%;
+  display: inline-block; }
+
+div.headercontainer {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+h3.subtitle {
+  font-style: italic; }
+
+input.inputbar {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  border-radius: 50px;
+  background: #27282a;
+  box-shadow: inset 4px 4px 8px #1c1d1e, inset -4px -4px 8px #323336; }

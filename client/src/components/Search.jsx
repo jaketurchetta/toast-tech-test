@@ -1,21 +1,10 @@
 import React from 'react'
 import '../../dist/css/main.css'
 
-export default class Search extends React.Component {
+const Search = ({ handleChange, handleSubmit}) => (
+  <form className='search' onSubmit={(event) => (handleSubmit(event))}>
+    <input type='submit' className='bar' tabIndex='-1' onChange={handleChange}/>
+  </form>
+)
 
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <form className='search' onSubmit={(event) => (this.props.handleSubmit(event))}>
-        <label> Enter ZIP:
-          <input name='zip' onChange={this.props.handleChange} />
-        </label>
-        <button type='submit'>Go</button>
-      </form>
-    )
-  }
-
-}
+export default Search

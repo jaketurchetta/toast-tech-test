@@ -2,15 +2,16 @@ import React from 'react'
 import '../../dist/css/main.css'
 import { GOOGLE_API_KEY, WEATHER_API_KEY } from '../../../config.js'
 import axios from 'axios'
-import Week from './Week.jsx'
+import Header from './Header.jsx'
 import Search from './Search.jsx'
+import Week from './Week.jsx'
 
 export default class App extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      zip: '02101',
+      zip: '02130',
       city: 'Boston',
       state: 'MA',
       lat: 42.35659589999999,
@@ -32,8 +33,8 @@ export default class App extends React.Component {
       .then(response => {
         this.setState({
             zip: response.data.results[0].address_components[0].short_name,
-            city: response.data.results[0].address_components[2].long_name,
-            state: response.data.results[0].address_components[4].short_name,
+            city: response.data.results[0].address_components[1].long_name,
+            state: response.data.results[0].address_components[3].short_name,
             lat: response.data.results[0].geometry.location.lat,
             lng: response.data.results[0].geometry.location.lng,
         }, () => {
@@ -62,6 +63,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='appcontainer'>
+        <Header city={this.state.city} state={this.state.state} />
         <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <Week weather={this.state.dailyWeather} />
       </div>

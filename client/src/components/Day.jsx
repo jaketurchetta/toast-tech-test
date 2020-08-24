@@ -19,9 +19,15 @@ const Day = ({ date, temperature, clouds, pop, condition, description, icon }) =
         <span className='temphigh'> {Math.round(temperature.max)}° </span>
         <span className='templow'> / {Math.round(temperature.min)}° </span>
       </div>
-      <img src={`http://openweathermap.org/img/wn/${icon}.png`} />
+      <div className='circle' >
+        <img className='icon' src={`http://openweathermap.org/img/wn/${icon}.png`} />
+      </div>
       <span className='condition'> {condition} </span>
-      <span className='pop'> {Math.round(pop*100)}% </span>
+      <div className='precipitation'>
+        <i className='fas fa-tint'></i>
+        <span className='pop'> {Math.round(pop*100)}% </span>
+      </div>
+
       <span className='date'> {month + ' ' + day} </span>
     </div>
   )
