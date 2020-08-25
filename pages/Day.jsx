@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Day = ({ date, temperature, clouds, pop, condition, description, icon }) => {
+const Day = ({ date, temperature, clouds, pop, condition, icon, uvi, wind }) => {
 
   // UTC to local date conversion
   const d = new Date(0)
   d.setUTCSeconds(date)
   const daystring = d.toString()
-  const weekday = daystring.substr(0,3)
-  const month = daystring.substr(4,3)
-  const day = daystring.substr(8,2)
-  const year = daystring.substr(11,4)
+  const weekday = daystring.substr(0, 3)
+  const month = daystring.substr(4, 3)
+  const day = daystring.substr(8, 2)
+  const year = daystring.substr(11, 4)
 
   return (
     <div className='day'>
@@ -31,11 +31,35 @@ const Day = ({ date, temperature, clouds, pop, condition, description, icon }) =
         </div>
         <span className='condition'> {condition} </span>
       </div>
-      <div className='precipitation'>
-        <div className='droplet'>
-          <i className='fas fa-tint'></i>
+      <div className='bottomrow'>
+        <div className='clouduv'>
+          <div className='uv'>
+            <div className='sun'>
+              <i class="fas fa-sun"></i>
+            </div>
+            <span className='uvi'> {Math.round(uvi)} </span>
+          </div>
+          <div className='clouds'>
+            <div className='cloudicon'>
+              <i class="fas fa-cloud"></i>
+            </div>
+            <span className='cloudpct'> {Math.round(clouds)}% </span>
+          </div>
         </div>
-        <span className='pop'> {Math.round(pop*100)}% </span>
+        <div className='precipwind'>
+          <div className='precipitation'>
+            <div className='droplet'>
+              <i className='fas fa-tint'></i>
+            </div>
+            <span className='pop'> {Math.round(pop * 100)}% </span>
+          </div>
+          <div className='wind'>
+            <div className='windicon'>
+              <i className="fas fa-wind"></i>
+            </div>
+            <span className='windspeed'> {Math.round(wind)} MPH </span>
+          </div>
+        </div>
       </div>
     </div>
   )

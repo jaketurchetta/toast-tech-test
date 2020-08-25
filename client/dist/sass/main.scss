@@ -1,6 +1,6 @@
 $myfontfamily: Muli, sans-serif;
 $extra-large: 20vh;
-$textColor: #F6F5F7;
+$textColor: #f6f5f7;
 
 html, body {
   height: 100%;
@@ -79,7 +79,7 @@ div.week {
 div.day {
   display: grid;
   grid-template-rows: 33.3% 33.3% 33.3%;
-  height: 250px;
+  height: 40vh;
   width: 90%;
   border-radius: 25px;
   background: linear-gradient(145deg, #2a2b2d, #232426);
@@ -124,7 +124,7 @@ span.weekday {
 span.date {
   justify-content: flex-start;
   align-items: flex-start;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 div.temperature {
@@ -155,7 +155,7 @@ span.templow {
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 form.search {
@@ -180,22 +180,89 @@ span.condition {
   font-size: 1.5em;
 }
 
-div.precipitation {
+div.clouduv {
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  font-size: 1em;
+}
+
+div.clouds {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+div.uv {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 15px;
+  margin-bottom: 2px;
+}
+
+div.sun {
+  color: #f7f145;
+}
+
+span.uvi {
+  margin-left: 8px;
+}
+
+div.cloudicon {
+  color: #a0a0a2;
+}
+
+span.cloudpct {
+  margin-left: 8px;
+}
+
+div.precipwind {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
   margin-bottom: 15px;
   margin-right: 15px;
+  font-size: 1em;
+}
+
+div.precipitation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 2px;
+}
+
+div.wind {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 span.pop {
-  font-size: 1.5em;
+  margin-left: 8px;
+}
+
+span.windspeed {
   margin-left: 8px;
 }
 
 div.droplet {
   color: #2b8bd4;
-  font-size: 1.5em;
+}
+
+div.windicon {
+  color: #f6f5f7;
 }
 
 div.headercontainer {
@@ -206,21 +273,13 @@ div.headercontainer {
   align-items: center;
 }
 
-h3.subtitle {
-  font-style: italic;
-}
-
-h4.subtitle {
-  font-style: italic;
-}
-
 h5.current {
-  font-size: 16px;
+  font-size: 2vh;
   margin-bottom: 5px;
 }
 
 h6.location {
-  font-size: 40px;
+  font-size: 5vh;
   margin-bottom: 20px;
   margin-top: 10px;
 }

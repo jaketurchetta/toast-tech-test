@@ -11,7 +11,9 @@ const Week = ({ weather }) => (
           pop={day.pop}
           condition={day.weather[0].main}
           description={day.weather[0].description}
-          icon={day.weather[0].icon} />)}
+          icon={day.weather[0].icon}
+          uvi={day.uvi}
+          wind={day.wind_speed} />)}
     </div>
   )
 
