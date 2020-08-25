@@ -11,6 +11,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      fontsLoaded: false,
       zip: '02130',
       city: 'Boston',
       state: 'MA',
@@ -103,6 +104,7 @@ export default class App extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
           <meta name="Description" content="Toast marketing Front End Developer coding challenge."></meta>
           <script src="https://kit.fontawesome.com/61bb554ebd.js" crossOrigin="anonymous"></script>
+          <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&display=swap" rel="stylesheet"></link>
         </head>
         <body>
           <div className='appcontainer'>
