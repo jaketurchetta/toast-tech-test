@@ -1,6 +1,6 @@
 import React from 'react'
 import '../client/dist/css/main.css'
-import { GOOGLE_API_KEY, WEATHER_API_KEY } from '../config.js'
+import { GOOGLE_API_KEY, WEATHER_API_KEY, IP_LOOKUP_API_KEY } from '../config.js'
 import axios from 'axios'
 import Header from './Header.jsx'
 import Search from './Search.jsx'
@@ -32,15 +32,15 @@ export default class App extends React.Component {
 
   // HTTP REQUESTS
   getGeolocation(callback) {
-    axios.get('http://www.geoplugin.net/json.gp')
+    axios.get(`https://ipinfo.io?token=${IP_LOOKUP_API_KEY}`)
       .then(response => {
-        console.log(response)
+        let locSplit = response.data.loc.split(',')
         this.setState({
-          lat: response.data.geoplugin_latitude,
-          lng: response.data.geoplugin_longitude,
-          city: response.data.geoplugin_city,
-          state: response.data.geoplugin_regionCode,
-          zip: ''
+          lat: locSplit[0],
+          lng: locSplit[1],
+          city: response.data.city,
+          state: response.data.region,
+          zip: response.data.postal
         })
       })
       .then(callback())
