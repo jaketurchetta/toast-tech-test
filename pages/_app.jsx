@@ -105,8 +105,7 @@ export default class App extends React.Component {
         </head>
         <body>
           <div className='appcontainer'>
-            <Header city={this.state.city} state={this.state.state} />
-            <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+            <Header city={this.state.city} state={this.state.state} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
             <Week weather={this.state.dailyWeather} />
           </div>
         </body>

@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   background-color: #27282a; }
 
-.cut-text {
+div.cut-text {
   position: relative;
   text-transform: uppercase;
   font-size: 110px;
@@ -12,7 +12,7 @@ html, body {
   font-weight: 900;
   font-family: 'Catamaran', sans-serif;
   font-style: italic; }
-  .cut-text:after {
+  div.cut-text:after {
     content: "toasty";
     position: absolute;
     left: -10px;
@@ -20,7 +20,7 @@ html, body {
     color: #E96E50;
     -webkit-clip-path: polygon(0 25%, 100% 65%, 100% 100%, 0% 100%);
     clip-path: polygon(0 25%, 100% 65%, 100% 100%, 0% 100%); }
-  .cut-text:before {
+  div.cut-text:before {
     content: "toasty";
     position: absolute;
     color: #E96E50;
@@ -31,10 +31,14 @@ div.appcontainer {
   font-family: Muli, sans-serif;
   height: 100%;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; }
+  display: grid;
+  grid-template-columns: 20px 1fr 20px; }
+
+div.appcontainer > * {
+  grid-column: 2 / -2; }
+
+div.appcontainer > .full {
+  grid-column: 1 / -1; }
 
 div.weather {
   flex: 1;
@@ -42,12 +46,16 @@ div.weather {
   justify-content: center; }
 
 div.week {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  overflow-x: scroll; }
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(7, calc(50% - 40px));
+  grid-template-rows: minmax(150px, 1fr);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; }
 
 div.day {
   display: flex;
@@ -55,7 +63,7 @@ div.day {
   align-items: center;
   justify-content: center;
   height: 250px;
-  width: 11%;
+  width: 90%;
   border-radius: 25px;
   background: linear-gradient(145deg, #2a2b2d, #232426);
   box-shadow: 9px 9px 29px #1c1d1f, -9px -9px 29px #323335;
@@ -90,7 +98,7 @@ span.templow {
 
 form.search {
   color: #F6F5F7;
-  padding-bottom: 50px; }
+  margin-bottom: 20px; }
 
 div.circle {
   padding-top: 10px;
