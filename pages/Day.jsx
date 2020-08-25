@@ -1,5 +1,4 @@
 import React from 'react'
-// import '../client/dist/css/main.css'
 
 const Day = ({ date, temperature, clouds, pop, condition, description, icon }) => {
 

@@ -50,11 +50,11 @@ export default class App extends React.Component {
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=${GOOGLE_API_KEY}`)
       .then(response => {
         this.setState({
-            zip: response.data.results[0].address_components[0].short_name,
-            city: response.data.results[0].address_components[1].long_name,
-            state: response.data.results[0].address_components[3].short_name,
-            lat: response.data.results[0].geometry.location.lat,
-            lng: response.data.results[0].geometry.location.lng,
+          zip: response.data.results[0].address_components[0].short_name,
+          city: response.data.results[0].address_components[1].long_name,
+          state: response.data.results[0].address_components[3].short_name,
+          lat: response.data.results[0].geometry.location.lat,
+          lng: response.data.results[0].geometry.location.lng,
         })
       })
       .then(callback())
@@ -65,7 +65,7 @@ export default class App extends React.Component {
     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.lat}&lon=${this.state.lng}&exclude=minutely,hourly&appid=${WEATHER_API_KEY}&units=imperial`)
       .then(response => {
         this.setState({
-          dailyWeather: response.data.daily.slice(0,7)
+          dailyWeather: response.data.daily.slice(0, 7)
         })
       })
       .catch(err => console.log(err))
@@ -73,7 +73,7 @@ export default class App extends React.Component {
 
   // FORM HANDLERS
   handleChange(event) {
-    this.setState({zip: event.target.value})
+    this.setState({ zip: event.target.value })
   }
 
   validateInput(input) {
@@ -95,11 +95,22 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className='appcontainer'>
-        <Header city={this.state.city} state={this.state.state} />
-        <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-        <Week weather={this.state.dailyWeather} />
-      </div>
+      <html lang='en'>
+        <head>
+          <title>Toasty</title>
+          <meta charSet="UTF-8"></meta>
+          <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+          <meta name="Description" content="Toast marketing Front End Developer coding challenge."></meta>
+          <script src="https://kit.fontawesome.com/61bb554ebd.js" crossOrigin="anonymous"></script>
+        </head>
+        <body>
+          <div className='appcontainer'>
+            <Header city={this.state.city} state={this.state.state} />
+            <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+            <Week weather={this.state.dailyWeather} />
+          </div>
+        </body>
+      </html>
     )
   }
 

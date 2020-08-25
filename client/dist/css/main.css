@@ -4,15 +4,28 @@ html, body {
   margin: 0;
   background-color: #27282a; }
 
-div#app.container {
-  font-family: Muli, sans-serif;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+.cut-text {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 110px;
+  color: transparent;
+  font-weight: 900;
+  font-family: 'Catamaran', sans-serif;
+  font-style: italic; }
+  .cut-text:after {
+    content: "toasty";
+    position: absolute;
+    left: -10px;
+    top: -2px;
+    color: #E96E50;
+    -webkit-clip-path: polygon(0 25%, 100% 65%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 25%, 100% 65%, 100% 100%, 0% 100%); }
+  .cut-text:before {
+    content: "toasty";
+    position: absolute;
+    color: #E96E50;
+    -webkit-clip-path: polygon(0 0, 110% 0, 100% 65%, 0 25%);
+    clip-path: polygon(0 0, 110% 0, 100% 65%, 0 25%); }
 
 div.appcontainer {
   font-family: Muli, sans-serif;
@@ -51,18 +64,28 @@ span.weekday {
   height: 100%;
   display: flex;
   align-items: flex-start;
-  padding-top: 20px; }
+  padding-top: 20px;
+  padding-bottom: 0px; }
 
 span.date {
   align-items: flex-end;
   padding-bottom: 20px; }
 
 div.temperature {
-  align-items: flex-start; }
+  height: 100%;
+  display: flex;
+  align-items: baseline;
+  padding: 0; }
 
 span.temphigh {
   font-size: 30px;
   font-style: bold; }
+
+span.templow {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; }
 
 form.search {
   color: #F6F5F7;
@@ -93,12 +116,13 @@ h4.subtitle {
   font-style: italic; }
 
 h5.current {
-  font-size: 15px; }
+  font-size: 16px;
+  margin-bottom: 5px; }
 
 h6.location {
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 20px;
-  margin-top: 15px; }
+  margin-top: 10px; }
 
 input.bar {
   display: flex;

@@ -1,4 +1,5 @@
 $myfontfamily: Muli, sans-serif;
+$extra-large: 110px;
 $textColor: #F6F5F7;
 
 html, body {
@@ -8,15 +9,35 @@ html, body {
   background-color: #27282a;
 }
 
-div#app.container {
-    font-family: $myfontfamily;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.cut-text {
+  $title-text: 'toasty';
+  position: relative;
+  text-transform: uppercase;
+  font-size: $extra-large;
+  color: transparent;
+  font-weight: 900;
+  font-family: 'Catamaran', sans-serif;
+  font-style: italic;
+
+  &:after {
+    content: $title-text;
+    position: absolute;
+    left: -10px;
+    top: -2px;
+    color: #E96E50;
+    $path: polygon(0 25%, 100% 65%, 100% 100%, 0% 100%);
+    -webkit-clip-path: $path;
+    clip-path: $path;
+  }
+
+  &:before {
+    content: $title-text;
+    position: absolute;
+    color: #E96E50;
+    $path: polygon(0 0, 110% 0, 100% 65%, 0 25%);
+    -webkit-clip-path: $path;
+    clip-path: $path;
+  }
 }
 
 div.appcontainer {
@@ -62,6 +83,7 @@ span.weekday {
   display: flex;
   align-items: flex-start;
   padding-top: 20px;
+  padding-bottom: 0px;
 }
 
 span.date {
@@ -70,12 +92,22 @@ span.date {
 }
 
 div.temperature {
-  align-items: flex-start;
+  height: 100%;
+  display: flex;
+  align-items: baseline;
+  padding: 0;
 }
 
 span.temphigh {
   font-size: 30px;
   font-style: bold;
+}
+
+span.templow {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 form.search {
@@ -113,13 +145,14 @@ h4.subtitle {
 }
 
 h5.current {
-  font-size: 15px;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 h6.location {
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 20px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 input.bar {
