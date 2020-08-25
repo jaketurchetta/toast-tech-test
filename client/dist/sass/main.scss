@@ -147,6 +147,7 @@ span.temphigh {
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
+  margin-bottom: 2px;
 }
 
 span.templow {
@@ -169,8 +170,8 @@ div.circle {
 }
 
 img.icon {
-  height: 7em;
-  width: 7em;
+  height: 15vh;
+  width: 15vh;
   background-color: #2b8bd4;
   border-radius: 50%;
   display: inline-block;
