@@ -3,7 +3,6 @@ import '../client/dist/css/main.css'
 import { GOOGLE_API_KEY, WEATHER_API_KEY, IP_LOOKUP_API_KEY } from '../config.js'
 import axios from 'axios'
 import Header from './Header.jsx'
-import Search from './Search.jsx'
 import Week from './Week.jsx'
 
 export default class App extends React.Component {
