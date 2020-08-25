@@ -118,13 +118,13 @@ span.weekday {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  font-size: 6vh;
+  font-size: 250%;
 }
 
 span.date {
   justify-content: flex-start;
   align-items: flex-start;
-  font-size: 3vh;
+  font-size: 100%;
 }
 
 div.temperature {
@@ -141,7 +141,7 @@ div.tempcolumn {
 }
 
 span.temphigh {
-  font-size: 6vh;
+  font-size: 250%;
   font-style: bold;
   display: flex;
   flex-direction: column;
@@ -155,7 +155,7 @@ span.templow {
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
-  font-size: 3vh;
+  font-size: 150%;
 }
 
 form.search {
@@ -169,15 +169,15 @@ div.circle {
 }
 
 img.icon {
-  height: 20vh;
-  width: 20vh;
+  height: 10em;
+  width: 10em;
   background-color: #2b8bd4;
   border-radius: 50%;
   display: inline-block;
 }
 
 span.condition {
-  font-size: 3vh;
+  font-size: 150%;
 }
 
 div.precipitation {
@@ -189,13 +189,13 @@ div.precipitation {
 }
 
 span.pop {
-  font-size: 3vh;
+  font-size: 150%;
   margin-left: 8px;
 }
 
 div.droplet {
   color: #2b8bd4;
-  font-size: 3vh;
+  font-size: 150%;
 }
 
 div.headercontainer {
