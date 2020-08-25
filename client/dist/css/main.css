@@ -6,8 +6,8 @@ html, body {
 
 div.appcontainer {
   font-family: "Barlow", sans-serif;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: 20px 1fr 20px; }
 
@@ -87,7 +87,7 @@ div.week {
   padding-bottom: 30px;
   padding-top: 30px;
   padding-left: 30px;
-  padding-right: 50px;
+  padding-right: 30px;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(7, calc(50% - 40px));
