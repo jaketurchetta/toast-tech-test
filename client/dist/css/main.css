@@ -11,7 +11,8 @@ div.cut-text {
   color: transparent;
   font-weight: 900;
   font-family: 'Catamaran', sans-serif;
-  font-style: italic; }
+  font-style: italic;
+  padding-right: 30px; }
   div.cut-text:after {
     content: "toasty";
     position: absolute;
@@ -59,9 +60,7 @@ div.week {
 
 div.day {
   display: grid;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  grid-template-rows: 33.3% 33.3% 33.3%;
   height: 250px;
   width: 90%;
   border-radius: 25px;
@@ -69,32 +68,66 @@ div.day {
   box-shadow: 9px 9px 29px #1c1d1f, -9px -9px 29px #323335;
   color: #F6F5F7; }
 
-span.weekday {
-  height: 100%;
+div.toprow {
   display: flex;
+  flex-direction: row; }
+
+div.middlerow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+
+div.bottomrow {
+  display: flex;
+  flex-direction: row; }
+
+div.daydate {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
-  padding-top: 20px;
-  padding-bottom: 0px; }
+  margin-top: 15px;
+  margin-left: 15px; }
+
+span.weekday {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 6vh; }
 
 span.date {
-  align-items: flex-end;
-  padding-bottom: 20px; }
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 3vh; }
 
 div.temperature {
-  height: 100%;
+  width: 100%;
   display: flex;
-  align-items: baseline;
-  padding: 0; }
+  justify-content: flex-end;
+  margin-top: 15px;
+  margin-right: 15px; }
+
+div.tempcolumn {
+  display: flex;
+  flex-direction: column; }
 
 span.temphigh {
-  font-size: 30px;
-  font-style: bold; }
+  font-size: 6vh;
+  font-style: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start; }
 
 span.templow {
   height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: flex-end; }
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  font-size: 3vh; }
 
 form.search {
   color: #F6F5F7;
@@ -105,11 +138,29 @@ div.circle {
   padding-bottom: 10px; }
 
 img.icon {
-  height: 50px;
-  width: 50px;
+  height: 20vh;
+  width: 20vh;
   background-color: #2b8bd4;
   border-radius: 50%;
   display: inline-block; }
+
+span.condition {
+  font-size: 3vh; }
+
+div.precipitation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 15px;
+  margin-right: 15px; }
+
+span.pop {
+  font-size: 3vh;
+  margin-left: 8px; }
+
+div.droplet {
+  color: #2b8bd4;
+  font-size: 3vh; }
 
 div.headercontainer {
   color: #F6F5F7;
