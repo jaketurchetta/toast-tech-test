@@ -20,6 +20,7 @@ div#app.container {
 }
 
 div.appcontainer {
+  font-family: $myfontfamily;
   height: 100%;
   width: 100%;
   display: flex;
@@ -109,6 +110,16 @@ h3.subtitle {
 
 h4.subtitle {
   font-style: italic;
+}
+
+h5.current {
+  font-size: 15px;
+}
+
+h6.location {
+  font-size: 50px;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 input.bar {
