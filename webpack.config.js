@@ -1,7 +1,7 @@
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: __dirname + '/pages/index.jsx',
   module: {
     rules: [

@@ -34,6 +34,7 @@ export default class App extends React.Component {
   getGeolocation(callback) {
     axios.get('http://www.geoplugin.net/json.gp')
       .then(response => {
+        console.log(response)
         this.setState({
           lat: response.data.geoplugin_latitude,
           lng: response.data.geoplugin_longitude,
